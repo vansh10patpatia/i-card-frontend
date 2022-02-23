@@ -1,11 +1,10 @@
-import React,{useState,useEffect,useRef,useCallback} from 'react'
+import React,{useState,useRef} from 'react'
 import Navbar from "../Components/Navbar"
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import { green } from '@mui/material/colors';
-import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Eraimage from "../assets/graphicera.png"
 import Card from '@mui/material/Card';
@@ -18,13 +17,6 @@ import {useSelector} from 'react-redux';
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 
 

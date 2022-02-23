@@ -4,7 +4,7 @@ import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import {verifyAccessToken} from '../APIs/login'
 import {useDispatch,useSelector} from 'react-redux';
-import { SET_AUTH_STATUS, SET_USER_DETAILS, SET_ACCESS_TOKEN } from '../Reducers/types';
+import { SET_AUTH_STATUS, SET_USER_DETAILS } from '../Reducers/types';
 
 export default function Navigation() {
     
@@ -20,7 +20,7 @@ export default function Navigation() {
             navigate("/");
         }
 
-    },[authStatus]);
+    },[authStatus,location.pathname,navigate]);
 
     useEffect(()=>{
         setLoading(true);
@@ -39,7 +39,7 @@ export default function Navigation() {
                     console.log(error);
                     setLoading(false)
                 })
-    },[])
+    },[authStatus,dispatch,navigate])
 
     return (
         

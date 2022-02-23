@@ -1,13 +1,12 @@
-import React,{useEffect,useState} from 'react';
+import React,{useState} from 'react';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
-import {useNavigate,useLocation} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {loginAdmin} from '../APIs/login';
 import {useDispatch} from 'react-redux';
 import { SET_AUTH_STATUS, SET_USER_DETAILS, SET_ACCESS_TOKEN } from '../Reducers/types';
@@ -54,12 +53,11 @@ export default function Login(props){
                 })
     }
 
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     return (
         <>
         <div className="login-page-container">
             <div className="login-page-img-container">
-                <img src={require('../assets/loginImage.png')}   />
+                <img src={require('../assets/loginImage.png')} alt="login"  />
             </div>
         <div className="login-page-card-container">
             

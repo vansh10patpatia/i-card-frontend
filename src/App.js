@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Navigation from './Components/Routes';
 import { Provider } from 'react-redux';
