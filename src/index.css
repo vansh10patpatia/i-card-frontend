@@ -1,0 +1,337 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color:black !important; */
+}
+
+*{
+  font-family:'Poppins' !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body{
+  background-color: white;
+}
+.header{
+  background-color: white;
+  padding-top: 1rem;
+}
+.heading-name{
+  color: black;
+  text-align: center;
+  margin-top: 3rem !important;
+  
+}
+.Box1{
+  
+  color: black;
+  margin-top: 8rem;
+  font-weight: 800 !important;
+}
+.student-name{
+  color: white;
+  text-align: center;
+}
+.main-card{
+  width: 35rem !important;
+  border-radius: 13px !important;
+  
+}
+.card-heading{
+  color: black;
+  text-align: center;
+}
+.input{
+  background-color: white;
+  width: 10rem;
+  height: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  
+}
+.input-name{
+  font-size: 14px !important;
+}
+
+.graphic-era-image{
+  border-radius: 13px;
+}
+.i-card{
+  background-color: #303030 !important;
+  margin-top: 62px;
+  /* padding-top: -10px */
+  z-index: 10;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.college-name{
+  color: #fff;
+  position: absolute;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  line-height: 21px !important;
+  text-align: center;
+  letter-spacing: 0.01em !important;
+  word-wrap: break-word;
+  /* border: 1px solid rgba(0, 0, 0, 0.9); */
+  text-shadow: -1px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+  width:15%;
+  margin-left:80px !important;
+  margin-top:20px !important;
+
+}
+
+.college-icon{
+  position: absolute;
+  margin-left:-9%;
+  margin-top:10px
+}
+
+.user-avtar{
+  position: relative;
+  bottom:50px;
+  left:140px;
+  height:100% !important
+}
+
+.i-card-grid{
+  z-index: 10;
+  margin-top:10px
+}
+
+.user-details{
+  margin-top:-50px
+}
+
+.admin-login-container{
+  background-color:#b88471 !important;
+}
+
+.admin-login-card{
+  background-color:rgb(255, 255, 255) !important;
+  margin-top:7%;
+  border-radius:20px !important;
+  height: 555px !important;
+  color:#000 !important;
+  margin-left:-135px;
+  background-image: url('./assets/card.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* box-shadow: 1rem; */
+  /* box-shadow: #AA1DE4  0px 0px 0px 2px, #E2B3F6 0px 4px 6px -1px, #C564EC 0px 1px 0px inset; */
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/* .admin-login-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  border-radius:10px; 
+  padding:5px; 
+  background:linear-gradient(320deg, #FFFFFF  , #E2B3F6 25%  , #C564EC 50%  , #AA1DE4 100% ); 
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; 
+          mask-composite: exclude;
+} */
+
+.admin-login-welcome{
+  font-weight:600 !important;
+  margin-top:20px !important;
+  margin-bottom:50px !important;
+  color:#000 !important
+
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::placeholder{
+  color:#000 !important
+}
+
+.login-input-container{
+  margin-top:20px !important;
+  margin-bottom:20px !important
+}
+
+.login-image{
+  width:100%
+}
+
+.login-inputs{
+  border-color:white !important;
+  width:85%
+}
+
+.login-inputs:focus {
+  outline: none !important;
+  outline-color:white !important;
+  border:1px solid white !important;
+}
+
+.login-checkbox-container,.forgot-password{
+  display:flex !important;
+  justify-content: flex-start !important;
+  margin-left:6% !important;
+  margin-bottom:20px !important;
+}
+.forgot-password{
+  color:red !important;
+  margin-left:7% !important;
+  cursor: pointer;
+}
+
+.continue-button{
+  margin-top:20px !important;
+  width:200px;
+}
+
+.css-1wc848c-MuiFormHelperText-root.Mui-error {
+  color: #d32f2f !important;
+}
+
+.admin-login-forgot-password{
+  font-weight:600 !important;
+  margin-top:200px !important;
+  margin-bottom:50px !important
+}
+
+.admin-topnavbar,.css-1v5u2yv{
+  background-color:#1B1B1B !important;
+}
+
+.css-zv8vxp-MuiGrid-root{
+  width:95% !important;
+}
+
+.field-container{
+  margin-top:10px !important;
+}
+
+.admin-login-screen-grid{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content:center !important;
+}
+
+.admin-login-screen-card{
+  background-color:rgb(255, 255, 255) !important;
+  border-radius:20px !important;
+  background-image: url('./assets/card.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top:10% !important;
+  padding-bottom:10% !important;
+  /* box-shadow: 1rem; */
+  /* box-shadow: #AA1DE4  0px 0px 0px 2px, #E2B3F6 0px 4px 6px -1px, #C564EC 0px 1px 0px inset; */
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.id-card-text-container{color: #fff;padding-bottom: 9px;}
+.id-card-container{width: 430px;position: relative; background-color: #333; border-radius: 20px;margin-right: -20px; }
+.id-card-img-container { position: relative;}
+.id-card-img-container img{ width: 100%;}
+.top-text-div{position: absolute;display: flex;align-items: center; color: #fff; top: 10px;left: 15px;}
+.top-text-div p{margin-left: 10px;width: 250px;font-size: 18px;font-weight: 700;}
+/* .avatar-container {position: absolute;} */
+.avatar-container img{width: 90px;position: absolute;bottom: -10px;left: 165px;}
+
+
+.header{padding-top: 3px;}
+.home-page-all-containers{position: relative;}
+.i-card-girl-image img{position: absolute;left: 0;width: 44vw;z-index: -1;}
+.css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 45%;    background-size: 100%;margin-top: 0;margin-left: 0;}
+.main-containers-for-page{display: flex;width: 96%;margin: 0 auto; justify-content: flex-end;margin-top: 100px;margin-bottom: 50px;}
+@media (max-width:1600px) {
+  .id-card-container{width: 350px;}
+  .id-card-text-container{padding-bottom: 1px;}
+  .avatar-container img{left: 127px;width: 80px;}
+  .id-card-text-container h1{ margin-top: 3px;}
+  .id-card-text-container p{ margin-top: 3px;}
+  .main-containers-for-page{align-items: flex-start;}
+  .admin-login-card{height: 484px !important;}
+  .admin-login-welcome{margin-bottom: 20px !important;}
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{height: 19px !important;}
+}
+  @media (max-width:1000px) {
+    .main-containers-for-page{flex-direction: column-reverse;align-items: center;}
+    .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 84%;}
+    .id-card-container{margin-right: 0;margin-top: 20px;}
+    .i-card-girl-image img{width: 100vw;top: -100px;left: -50px;}
+  }
+  @media (max-width:600px) {
+    .main-containers-for-page{margin-top: 50px;}
+    .css-1v5z4dq-MuiPaper-root-MuiCard-root{
+      
+      height: unset !important;
+    }
+    .css-1sdej7c-MuiTypography-root{font-size: 24px !important;}
+    .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 94%;}
+    .Box1{margin-top: 6rem;}
+  }
+  @media (max-width:400px) {
+    .i-card-wrapper{overflow-x: auto;}
+
+  }
+  .login-page-container{
+    display: flex;min-height: 100vh;position: relative;
+    background: linear-gradient(#edaef9,#81b1fa);justify-content: space-around;
+  }
+  .login-page-img-container img{width: 45vw;position: absolute;left: 0;}
+  .login-page-card-container{width: 40%;}
+  .login-page-card-container .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 100%;margin-top: 14%;}
+  @media (max-width:1200px) {
+    .login-page-card-container{width: 40%;}
+    .login-page-card-container .css-1v5z4dq-MuiPaper-root-MuiCard-root{padding-top: 0 !important;padding-bottom: 0 !important;}
+    .login-page-card-container .css-1sdej7c-MuiTypography-root{font-size: 28px;}
+    .login-page-card-container .css-37jdci-MuiTypography-root{font-size: 14px;}
+    .login-page-card-container .admin-login-welcome{margin-top: 10px !important;margin-bottom: 10px !important;}
+    .login-page-card-container .continue-button{margin-top: 10px !important;width: 150px;}
+    .login-page-card-container .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{height: 10px !important;}
+    
+    
+  }
+  @media (max-width:800px) {
+    .login-page-img-container{    position: absolute;
+      left: -50px;top: -30px;
+      z-index: 0;}
+      .login-page-img-container img{width: 80vw;}
+      .login-page-card-container{z-index: 1;}
+      .login-page-card-container{width: 85%;}
+      .girl-card-image{
+        margin-top:0px !important;
+      }
+  }
+
+  .user-box{
+    position: absolute;
+    right: 10px;
+  }
+
+  .girl-card-image{
+    margin-top:-200px
+  }
+
+  .geu-name{
+    text-shadow: -1px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+  }
