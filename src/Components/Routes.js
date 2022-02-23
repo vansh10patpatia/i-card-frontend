@@ -46,7 +46,7 @@ export default function Navigation() {
             <Routes>
                 
                 <Route exact path="/generate"  element={<Home />}/>
-                <Route exact path="/"  element={<Login loading={loading} setLoading={loading} />}/>
+                <Route exact path="/"  element={<Login loading={loading} setLoading={setLoading} />}/>
                 
             </Routes>
     )
