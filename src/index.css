@@ -257,7 +257,12 @@ body{
 .header{padding-top: 3px;}
 .home-page-all-containers{position: relative;}
 .i-card-girl-image img{position: absolute;left: 0;width: 44vw;z-index: -1;}
-.css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 45%;    background-size: 100%;margin-top: 0;margin-left: 0;}
+.css-1v5z4dq-MuiPaper-root-MuiCard-root{
+  width: 45% !important;   
+  background-size: 100% !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+}
 .main-containers-for-page{display: flex;width: 96%;margin: 0 auto; justify-content: flex-end;margin-top: 100px;margin-bottom: 50px;}
 @media (max-width:1600px) {
   .id-card-container{width: 350px;}

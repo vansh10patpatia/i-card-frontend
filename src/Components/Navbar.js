@@ -34,6 +34,7 @@ const ResponsiveAppBar = (props) => {
     dispatch({ type: SET_USER_DETAILS, payload: { userDetails: {} } });
     dispatch({ type: SET_ACCESS_TOKEN, payload: { accessToken: '' } });
     dispatch({ type: SET_AUTH_STATUS, payload: { authStatus: false } });
+    localStorage.setItem('accessToken', '');
   }
 
   return (
