@@ -14,7 +14,8 @@ import {
   SET_USER_DETAILS,
   SET_ACCESS_TOKEN,
 } from "../Reducers/types";
-
+import Lottie from 'lottie-react'; 
+import LoginAnim from "../assets/animations/login-animation.json";
 export default function Login(props) {
   const dispatch = useDispatch();
 
@@ -64,9 +65,12 @@ export default function Login(props) {
   return (
     <>
       <div className="login-page-container">
-        <div className="login-page-img-container">
-          <img src={require("../assets/loginImage.png")} alt="login" />
-        </div>
+        {/* <div className="login-page-img-container"> */}
+          {/* <img src={require("../assets/loginImage.png")} alt="login" /> */}
+          <div className="login-animation-container">
+          <Lottie animationData={LoginAnim} loop={true} />
+            </div>
+        {/* </div> */}
         <div className="login-page-card-container">
           {/* <Card variant="outlined" className="admin-login-screen-card">
                         <CardContent>

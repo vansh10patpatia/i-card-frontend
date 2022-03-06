@@ -388,7 +388,7 @@ body {
   min-height: 100vh;
   position: relative;
   background: linear-gradient(#edaef9, #81b1fa);
-  justify-content: space-around;
+  justify-content: space-around;align-items: center;
 }
 .login-page-img-container img {
   width: 45vw;
@@ -404,7 +404,7 @@ body {
 }
 @media (max-width: 1200px) {
   .login-page-card-container {
-    width: 40%;
+    width: 46%;
   }
   .login-page-card-container .css-1v5z4dq-MuiPaper-root-MuiCard-root {
     padding-top: 0 !important;
@@ -566,7 +566,7 @@ body {
 
 
 
-.avatar-container {
+/* .avatar-container {
   
   width: 116px;
   top: 75%;
@@ -576,12 +576,80 @@ body {
   height: 116px;
 
 }
-.avatar-container img{
-  /* width: 200%; */
+.avatar-container img{ 
   width: 100%;
   height: 152%;
   object-fit: contain;
   position: unset;bottom: unset;left: unset;
+} */
+.avatar-container{overflow: hidden;
+  border-radius: 50%; width: 116px;height: 116px;position: absolute;left: 35%;top: 75%;
 }
-.login-input-container-login{width: 100%;padding-top: 30px;padding-bottom: 30px;margin-top: 75px !important; }
+.avatar-container img{width: 116px;
+  position: unset;object-fit: cover;bottom: unset;left: unset;width: 116px;    display: inline;
+
+  margin: 0 auto;
+
+  height: 100%;
+  /* min-height: 45vh; */
+
+  min-width: 100%;
+}
+.login-input-container-login{width: 100%;padding-top: 30px;padding-bottom: 30px;
+  /* margin-top: 75px !important; */
+ }
 .login-input-container-login .textOnInput{width: 100%;}
+.login-animation-container{
+  width: 40%;
+}
+.img-height-after-upload{min-height: 142px;}
+@media (max-width:1100px) {
+  .login-animation-container svg{
+    position: absolute;left: -30px;top: -170px;width: 90% !important;
+    
+  }
+  .login-page-card-container{z-index: 2;}
+  .login-animation-container{width: 0;}
+  .login-page-card-container {
+    width: 74%;
+    margin: 0 auto;
+  }
+}
+@media (max-width:1000px) {
+  .i-card-girl-image img{left: 0;    width: 54vw;
+    top: -84px;}
+  }
+  @media (max-width:800px) {
+  .i-card-girl-image img{top: -24%;}
+  
+}
+@media (max-width:650px) {
+  .i-card-girl-image img{top: -16%;}
+  
+}
+@media (max-width:600px) {
+  .i-card-girl-image img{top: -152px;}
+  .login-page-card-container {
+    width: 87%;
+    margin: 0 auto;
+  }
+  .login-page-card-container .continue-button{margin-top: 20px !important;}
+  .login-input-container-login h1{
+   margin-bottom: 9px !important; font-size: 23px;
+  }
+  .login-input-container-login h2{margin-top: 0;
+    font-size: 20px;
+  }
+  .input-feild-container{margin-top: 20px;}
+  .input-feild-container{padding: 0 20px;}
+  .textOnInput{margin-bottom: 25px;}
+  .login-input-container-login{padding-top: 20px;}
+  .input-download-btn button{margin-top: 0 !important;margin-bottom: 9px;}
+  .login-input-container{margin-top: 5px !important;}
+
+}
+.loading-animation-container{width: 30%;margin: 0 auto;min-height: 100vh;display: flex;align-items: center;justify-content: center;}
+.id-card-text-container h1{margin-top: 0;margin-bottom: 17px;}
+.id-card-text-container p{
+  margin: 8px 0;
+}
