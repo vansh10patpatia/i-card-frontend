@@ -19,7 +19,6 @@ export default function Navigation() {
         if(!authStatus && location.pathname.includes('/generate')){
             navigate("/");
         }
-
     },[authStatus,location.pathname,navigate]);
 
     useEffect(()=>{
