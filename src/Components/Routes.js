@@ -22,22 +22,25 @@ export default function Navigation() {
     },[authStatus,location.pathname,navigate]);
 
     useEffect(()=>{
-        setLoading(true);
-        verifyAccessToken(localStorage.getItem('accessToken'))
-                .then((response)=>{
-                    if(response){
-                        dispatch({type: SET_AUTH_STATUS, payload: { authStatus: true } });
-                        dispatch({type: SET_USER_DETAILS, payload: { userDetails: response.data } });
-                        navigate("/generate");
-                    }
-                    else{
-                        navigate("/");
-                    }
-                    setLoading(false)
-                }).catch((error)=>{
-                    console.log(error);
-                    setLoading(false)
-                })
+        if(!authStatus){
+            setLoading(true);
+            verifyAccessToken(localStorage.getItem('accessToken'))
+                    .then((response)=>{
+                        if(response){
+                            dispatch({type: SET_AUTH_STATUS, payload: { authStatus: true } });
+                            dispatch({type: SET_USER_DETAILS, payload: { userDetails: response.data } });
+                            navigate("/generate");
+                        }
+                        else{
+                            navigate("/");
+                        }
+                        setLoading(false)
+                    }).catch((error)=>{
+                        console.log(error);
+                        setLoading(false)
+                    })
+        }
+        
     },[authStatus,dispatch,navigate])
 
     return (
