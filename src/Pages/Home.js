@@ -10,11 +10,15 @@ import Nss from "../assets/nss-logo.png";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import domtoimage from "dom-to-image";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import DownloadModal from "../Components/DownloadModal"
 import Lottie from 'react-lottie';
 import animationData from "../assets/animations/loading2.json";
 import {editUser,updatePassword} from '../APIs/User';
+import {register} from '../APIs/automate'
+import {
+  SET_USER_DETAILS,
+  } from "../Reducers/types";
 
 const Input = styled("input")({
   display: "none",
@@ -22,13 +26,12 @@ const Input = styled("input")({
 
 function Form(props) {
   const userDetails = useSelector((state) => state.user.userDetails);
-
-  console.log(userDetails);
-
+  var disabled = userDetails.name?(true):(false);
+  const [isDisabled , setDisabled] = useState(disabled)
   const [name, setName] = useState(userDetails?.name);
   const [email, setEmail] = useState(userDetails?.email);
   const [phno, setPhno] = useState(userDetails?.phno);
-  const [bloodGroup, setBloodGroup] = useState(userDetails?.bloodgroup);
+  const [bloodGroup, setBloodGroup] = useState(userDetails?.blood);
   const [session, setSession] = useState(userDetails?.session);
   const [image, setImage] = useState(require("../assets/avtar.png"));
   const [imageName, setImageName] = useState("");
@@ -38,6 +41,7 @@ function Form(props) {
   const [open, setOpen] = useState(false);
   const [newPassword , setPassword] = useState('');
 
+  const dispatch = useDispatch();
  
 
   function editUserDetails(){
@@ -45,6 +49,10 @@ function Form(props) {
         .then((response) =>{
           console.log(response);
         })
+  }
+
+  function automate(){
+    register()
   }
 
   function changePassword(){
@@ -68,13 +76,30 @@ function Form(props) {
   function downloadImage() {
     setSuccess(false);
     setLoading(true);
+    if(!isDisabled){
+      editUser(userDetails._id,name,phno,bloodGroup,session,localStorage.getItem('accessToken'))
+      .then((response) =>{
+        console.log(response);
+        if(response.data){
+          dispatch({
+            type: SET_USER_DETAILS,
+            payload: { userDetails: response.data },
+          });
+          getIcard()
+        }
+      })
+    }
+  }
+
+  function getIcard(){
+    // console.log('hello');
     domtoimage
-      .toBlob(document.getElementById("i-card-container"))
-      .then(function (blob) {
-        require("downloadjs")(blob, name+"-i-card.png");
-        setSuccess(true);
-        setLoading(false);
-      });
+            .toBlob(document.getElementById("i-card-container"))
+            .then(function (blob) {
+              require("downloadjs")(blob, name+"-i-card.png");
+              setSuccess(true);
+              setLoading(false);
+            });
   }
 
   function onSelectFile(e) {
@@ -85,19 +110,18 @@ function Form(props) {
     setAvatarClass(true)
   }
   const lottieRef = useRef();
-const [loadingAnimation, setLoadingAnimation] = useState(true)
-const defaultOptions={
-  loop: true,
-  loop: true,
-  autoplay: true,
-  animationData: animationData,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice"
+  const [loadingAnimation, setLoadingAnimation] = useState(true)
+  const defaultOptions={
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
   }
-}
-setTimeout(() => {
-  setLoadingAnimation(false)
-}, 2500);
+  setTimeout(() => {
+    setLoadingAnimation(false)
+  }, 2500);
 // lottieRef.current.setSpeed(2);
 // Lottie.setSpeed(2)
   return (
@@ -159,30 +183,35 @@ setTimeout(() => {
                 <TextField id="outlined-basic" label="Name" className="login-inputs" variant="outlined" placeholder="Enter your name..."  focused 
                                         value={name}
                                         onChange={(event)=>{setName(event.target.value)}}
+                                        disabled={isDisabled}
                                         /> 
               </div>
               <div className="textOnInput"> 
                 <TextField id="outlined-basic" label="Email" variant="outlined" className="login-inputs" placeholder="Type your email..."  focused 
                                         value={email}
                                         onChange={(event)=>{setEmail(event.target.value)}}
+                                        disabled={true}
                                         />
               </div>
               <div className="textOnInput"> 
                                         <TextField id="outlined-basic" label="Blood Group" className="login-inputs" variant="outlined" placeholder="Enter your Blood Group"  focused 
                                         value={bloodGroup}
                                         onChange={(event)=>{setBloodGroup(event.target.value)}}
+                                        disabled={isDisabled}
                                         />
               </div>
               <div className="textOnInput"> 
                                         <TextField id="outlined-basic" label="Phone" variant="outlined" className="login-inputs" placeholder="Type your number..."  focused 
                                         onChange={(event)=>{setPhno(event.target.value)}}
                                         value={phno}
+                                        disabled={isDisabled}
                                         />
               </div>
               <div className="textOnInput">  
                                         <TextField id="outlined-basic" label="Session" className="login-inputs" variant="outlined" placeholder="Eg. 2024"  focused 
                                         value={session}
                                         onChange={(event)=>{setSession(event.target.value)}}
+                                        disabled={isDisabled}
                                         />
               </div>
               <div className="textOnInput">  
@@ -201,15 +230,22 @@ setTimeout(() => {
               </div>
             </div>
             <div className="input-download-btn">
-            <Button onClick={()=>changePassword()}>Edit Password</Button>
-            <Button onClick={()=>setOpen(true)}>Open modal</Button>
+            {/* <Button onClick={()=>changePassword()}>Edit Password</Button>
+            <Button onClick={()=>setOpen(true)}>Open modal</Button> */}
+            <Button onClick={()=>getIcard()}>Automate</Button>
             <Box sx={{ m: 1, position: 'relative' }}>
                                     <Button
                                         variant="contained"
                                         className="continue-button"
                                         sx={buttonSx}
                                         disabled={loading}
-                                        onClick={()=>downloadImage()} 
+                                        onClick={()=>{
+                                          isDisabled?(
+                                            downloadImage()
+                                          ):(
+                                            setOpen(true)
+                                          )
+                                        }} 
                                     >
                                         Download
                                     </Button>
