@@ -27,14 +27,14 @@ export default function Login(props) {
   // const [loading,setLoading] = useState(false)
   const { loading, setLoading } = props;
 
-  const [userid, setuserid] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function loginStudent() {
     setuseridError(false);
     setPasswordError(false);
     setLoading(true);
-    loginAdmin({ userid, password })
+    loginAdmin({ email, password })
       .then((response) => {
         if (response) {
           localStorage.setItem("accessToken", response.data.accessToken);
@@ -72,62 +72,16 @@ export default function Login(props) {
             </div>
         {/* </div> */}
         <div className="login-page-card-container">
-          {/* <Card variant="outlined" className="admin-login-screen-card">
-                        <CardContent>
-                            <Typography variant="h4" color="text.secondary" className="admin-login-welcome" style={{fontWeight: 600}} gutterBottom>
-                                Hey, Welcome Back!
-                            </Typography>
-                            <Typography variant="p" component="div">
-                                Log in to your account to continue
-                            </Typography>
-                            <Typography variant="p" component="div" className="login-input-container">
-                                <TextField id="outlined-basic" label="User-Id" className="login-inputs" variant="outlined" placeholder="Enter your user-id..."  focused 
-                                error={useridError} helperText={useridError?(useridErrorText):(null)}
-                                onChange={(event)=>{setuserid(event.target.value)}}
-                                />
-                            </Typography>
-                            <Typography variant="p" component="div" className="login-input-container">
-                                <TextField id="outlined-basic" type="password" label="Password" variant="outlined" className="login-inputs" placeholder="Type your password"  focused error={passwordError} helperText={passwordError?(passwordErrorText):(null)}
-                                onChange={(event)=>{setPassword(event.target.value)}}/>
-                            </Typography>
-                             
-                           
-                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                <Box sx={{ m: 1, position: 'relative' }}>
-                                    <Button
-                                        variant="contained"
-                                        className="continue-button"
-                                        disabled={loading}
-                                        onClick={()=>loginStudent()}
-                                        >
-                                        Continue
-                                    </Button>
-                                    {loading && (
-                                    <CircularProgress
-                                        size={24}
-                                        sx={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            left: '50%',
-                                            marginTop: '-12px',
-                                            marginLeft: '-12px',
-                                        }}
-                                    />
-                                    )}
-                                </Box>
-                            </Typography>
-                        </CardContent>
-                    </Card> */}
-
+          
                         <div className="data-input-card-container login-input-container-login">
                             <h1>Hey, Welcome Back!</h1>
                             <h2> Log in to continue</h2>
                             <div className="input-feild-container">
                                 <div className="textOnInput">
 
-                            <TextField id="outlined-basic" label="User-Id" className="login-inputs" variant="outlined" placeholder="Enter your user-id..."  focused 
+                            <TextField id="outlined-basic" label="Email" className="login-inputs" variant="outlined" placeholder="Enter your email..."  focused 
                                 error={useridError} helperText={useridError?(useridErrorText):(null)}
-                                onChange={(event)=>{setuserid(event.target.value)}}
+                                onChange={(event)=>{setEmail(event.target.value)}}
                                 />
                                 </div>
                                 <div className="textOnInput">
