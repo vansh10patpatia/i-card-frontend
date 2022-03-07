@@ -11,14 +11,19 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import domtoimage from "dom-to-image";
 import { useSelector } from "react-redux";
+import DownloadModal from "../Components/DownloadModal"
 import Lottie from 'react-lottie';
 import animationData from "../assets/animations/loading2.json";
+import {editUser,updatePassword} from '../APIs/User';
+
 const Input = styled("input")({
   display: "none",
 });
 
 function Form(props) {
   const userDetails = useSelector((state) => state.user.userDetails);
+
+  console.log(userDetails);
 
   const [name, setName] = useState(userDetails?.name);
   const [email, setEmail] = useState(userDetails?.email);
@@ -29,8 +34,26 @@ function Form(props) {
   const [imageName, setImageName] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [avatarClass,setAvatarClass]=useState(false)
+  const [avatarClass,setAvatarClass]= useState(false);
+  const [open, setOpen] = useState(false);
+  const [newPassword , setPassword] = useState('');
+
  
+
+  function editUserDetails(){
+    editUser(userDetails._id,name,phno,bloodGroup,session,localStorage.getItem('accessToken'))
+        .then((response) =>{
+          console.log(response);
+        })
+  }
+
+  function changePassword(){
+    updatePassword(userDetails._id,newPassword)
+          .then((response) =>{
+            console.log(response);
+          })
+  }
+
   const buttonSx = {
     ...(success && {
       bgcolor: green[500],
@@ -48,7 +71,7 @@ function Form(props) {
     domtoimage
       .toBlob(document.getElementById("i-card-container"))
       .then(function (blob) {
-        require("downloadjs")(blob, "i-card.png");
+        require("downloadjs")(blob, name+"-i-card.png");
         setSuccess(true);
         setLoading(false);
       });
@@ -128,7 +151,7 @@ setTimeout(() => {
               </div>
             </div>
           </div>
-          
+          <DownloadModal open={open} setOpen={setOpen} buttonSx={buttonSx} loading={loading} downloadImage={downloadImage} />
           <div className="data-input-card-container">
             <h1>Graphic Era I card</h1>
             <div className="input-feild-container">
@@ -157,7 +180,7 @@ setTimeout(() => {
                                         />
               </div>
               <div className="textOnInput">  
-                                        <TextField id="outlined-basic" label="Session" className="login-inputs" variant="outlined" placeholder="Eg. 2020-24"  focused 
+                                        <TextField id="outlined-basic" label="Session" className="login-inputs" variant="outlined" placeholder="Eg. 2024"  focused 
                                         value={session}
                                         onChange={(event)=>{setSession(event.target.value)}}
                                         />
@@ -178,7 +201,8 @@ setTimeout(() => {
               </div>
             </div>
             <div className="input-download-btn">
-
+            <Button onClick={()=>changePassword()}>Edit Password</Button>
+            <Button onClick={()=>setOpen(true)}>Open modal</Button>
             <Box sx={{ m: 1, position: 'relative' }}>
                                     <Button
                                         variant="contained"
