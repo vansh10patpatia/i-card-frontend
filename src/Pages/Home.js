@@ -79,7 +79,7 @@ function Form(props) {
     if(!isDisabled){
       editUser(userDetails._id,name,phno,bloodGroup,session,localStorage.getItem('accessToken'))
       .then((response) =>{
-        console.log(response);
+        // console.log(response);
         if(response.data){
           dispatch({
             type: SET_USER_DETAILS,
@@ -99,6 +99,8 @@ function Form(props) {
               require("downloadjs")(blob, name+"-i-card.png");
               setSuccess(true);
               setLoading(false);
+              setOpen(false);
+              setDisabled(true);
             });
   }
 
@@ -232,7 +234,7 @@ function Form(props) {
             <div className="input-download-btn">
             {/* <Button onClick={()=>changePassword()}>Edit Password</Button>
             <Button onClick={()=>setOpen(true)}>Open modal</Button> */}
-            <Button onClick={()=>getIcard()}>Automate</Button>
+            {/* <Button onClick={()=>getIcard()}>Automate</Button> */}
             <Box sx={{ m: 1, position: 'relative' }}>
                                     <Button
                                         variant="contained"
@@ -241,7 +243,7 @@ function Form(props) {
                                         disabled={loading}
                                         onClick={()=>{
                                           isDisabled?(
-                                            downloadImage()
+                                            getIcard()
                                           ):(
                                             setOpen(true)
                                           )
